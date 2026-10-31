@@ -7,7 +7,7 @@ task_wait_random = __import__('3-tasks').task_wait_random
 
 
 async def task_wait_n(n: int, max_delay: int) -> List[float]:
-    """Spawn task_wait_random n times and return the delays in completion"""
+    """Spawn task_wait_random n times and return the delays as they finish."""
     tasks = [task_wait_random(max_delay) for _ in range(n)]
     delays = []
     for finished in asyncio.as_completed(tasks):
